@@ -22,12 +22,9 @@ SoundSensor soundSensor(SOUND_SENSOR_PIN);
 void setup() {
   Serial.begin(115200);
   wifi.connect();
-  
   mqttActuatorController.connect();
-
   mqttActuatorController.attach(&relayObserver);
   mqttActuatorController.setCallback();
-  
   soundSensor.attach(&mqttSensorPublisher);
 }
 
